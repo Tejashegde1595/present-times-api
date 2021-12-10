@@ -2,7 +2,7 @@ const express = require('express');
 var axios = require('axios');
 var cors = require('cors')
 const app = express();
-const port = 3000;
+const port = 8080;
 const API_KEY="08e3fdb043fc41f8b43e35ccf3d18b8f";
 const category = `&category=`;
 const country = `country=`;
