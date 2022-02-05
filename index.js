@@ -33,7 +33,7 @@ app.get('/documents', function(req, res) {
 });
 
 // Returns the HTML content of a single AMP document.
-app.get('/content/:document', function(req, res) {
+app.get('/:document', function(req, res) {
     var options = {
       root: path.join(__dirname,'/content/')
   };
@@ -48,7 +48,7 @@ app.get('/content/:document', function(req, res) {
 });
 
 // Returns the hero image of AMP document.
-app.get('/content/hero/:document', function(req, res) {
+app.get('/hero/:document', function(req, res) {
   var options = {
     root: path.join(__dirname,'/content/hero/')
 };
@@ -73,8 +73,8 @@ var docs = [
     "kicker": "Don't forget your walking stick",
     "author": "Demetria T. Edwards",
     "date": "Sep 24, 2016 10:04 AM",
-    "image": "/content/hero/21.jpeg",
-    "url": "/content/21.amp.html"
+    "image": "/hero/21.jpeg",
+    "url": "/21.amp.html"
   },
   {
     "title": "Vancouver in 48 Hours",
@@ -82,8 +82,8 @@ var docs = [
     "kicker": "A Marvel in British Columbia",
     "author": "Todd M. Smallwood",
     "date": "Sep 22, 2016 5:04 AM",
-    "image": "/content/hero/6.jpeg",
-    "url": "/content/6.amp.html"
+    "image": "/hero/6.jpeg",
+    "url": "/6.amp.html"
   },
   {
     "title": "18 Top Spots for Backpacking",
@@ -91,8 +91,8 @@ var docs = [
     "kicker": "Pack your backpack",
     "author": "Demetria T. Edwards",
     "date": "Sep 20, 2016 7:06 AM",
-    "image": "/content/hero/29.jpeg",
-    "url": "/content/29.amp.html"
+    "image": "/hero/29.jpeg",
+    "url": "/29.amp.html"
   },
   {
     "title": "Bucket List: New Zealand",
@@ -100,8 +100,8 @@ var docs = [
     "kicker": "This majestic land is offers everything from volcanic terrain to lush pastures",
     "author": "Nolan C. Sundquist",
     "date": "Sep 18, 2016 7:02 AM",
-    "image": "/content/hero/12.jpeg",
-    "url": "/content/12.amp.html"
+    "image": "/hero/12.jpeg",
+    "url": "/12.amp.html"
   },
   {
     "title": "Bucket List: Sweden",
@@ -109,8 +109,8 @@ var docs = [
     "kicker": "Go Nordic and be amazed",
     "author": "Nolan C. Sundquist",
     "date": "Sep 16, 2016 1:37 PM",
-    "image": "/content/hero/20.jpeg",
-    "url": "/content/20.amp.html"
+    "image": "/hero/20.jpeg",
+    "url": "/20.amp.html"
   },
   {
     "title": "Bucket List: Scotland",
@@ -118,8 +118,8 @@ var docs = [
     "kicker": "Venture into the highlands and see some truly remarkable sights",
     "author": "Nolan C. Sundquist",
     "date": "Sep 16, 2016 7:21 AM",
-    "image": "/content/hero/17.jpeg",
-    "url": "/content/17.amp.html"
+    "image": "/hero/17.jpeg",
+    "url": "/17.amp.html"
   },
   {
     "title": "Bucket List: Grand Canyon",
@@ -127,8 +127,8 @@ var docs = [
     "kicker": "How to spend days exploring this US national treasure",
     "author": "Carol R. Wright",
     "date": "Sep 16, 2016 2:34 AM",
-    "image": "/content/hero/16.jpeg",
-    "url": "/content/16.amp.html"
+    "image": "/hero/16.jpeg",
+    "url": "/16.amp.html"
   },
   {
     "title": "Bucket List: UK Countryside",
@@ -136,8 +136,8 @@ var docs = [
     "kicker": "Get outside the cities to relax in the idyllic heartland of the country",
     "author": "Shannon W. Marshall",
     "date": "Sep 14, 2016 9:25 AM",
-    "image": "/content/hero/15.jpeg",
-    "url": "/content/15.amp.html"
+    "image": "/hero/15.jpeg",
+    "url": "/15.amp.html"
   },
   {
     "title": "Paris in 48 Hours",
@@ -145,8 +145,8 @@ var docs = [
     "kicker": "The City of Lights",
     "author": "Joan P. Cypert",
     "date": "Sep 13, 2016 2:14 PM",
-    "image": "/content/hero/3.jpeg",
-    "url": "/content/3.amp.html"
+    "image": "/hero/3.jpeg",
+    "url": "/3.amp.html"
   },
   {
     "title": "Bucket List: Banff",
@@ -154,8 +154,8 @@ var docs = [
     "kicker": "Don't miss all that this scenic spot in Alberta's Rockies can offer",
     "author": "Shannon W. Marshall",
     "date": "Sep 13, 2016 1:56 PM",
-    "image": "/content/hero/14.jpeg",
-    "url": "/content/14.amp.html"
+    "image": "/hero/14.jpeg",
+    "url": "/14.amp.html"
   },
   {
     "title": "Bucket List: Romania",
@@ -163,8 +163,8 @@ var docs = [
     "kicker": "Some of the most scenic spots on earth",
     "author": "Nolan C. Sundquist",
     "date": "Sep 12, 2016 6:19 AM",
-    "image": "/content/hero/19.jpeg",
-    "url": "/content/19.amp.html"
+    "image": "/hero/19.jpeg",
+    "url": "/19.amp.html"
   },
   {
     "title": "Hamburg in 48 Hours",
@@ -172,8 +172,8 @@ var docs = [
     "kicker": "Gateway to the World",
     "author": "Joan P. Cypert",
     "date": "Sep 10, 2016 10:15 PM",
-    "image": "/content/hero/1.jpeg",
-    "url": "/content/1.amp.html"
+    "image": "/hero/1.jpeg",
+    "url": "/1.amp.html"
   },
   {
     "title": "Chicago in 48 Hours",
@@ -181,8 +181,8 @@ var docs = [
     "kicker": "The Windy City",
     "author": "Joan P. Cypert",
     "date": "Sep 7, 2016 9:14 AM",
-    "image": "/content/hero/7.jpeg",
-    "url": "/content/7.amp.html"
+    "image": "/hero/7.jpeg",
+    "url": "/7.amp.html"
   },
   {
     "title": "Montreal in 48 Hours",
@@ -190,8 +190,8 @@ var docs = [
     "kicker": "The City of Saints",
     "author": "Joan P. Cypert",
     "date": "Sep 7, 2016 4:39 AM",
-    "image": "/content/hero/4.jpeg",
-    "url": "/content/4.amp.html"
+    "image": "/hero/4.jpeg",
+    "url": "/4.amp.html"
   },
   {
     "title": "Melbourne in 48 Hours",
@@ -199,8 +199,8 @@ var docs = [
     "kicker": "Australia's Second City",
     "author": "Todd M. Smallwood",
     "date": "Sep 6, 2016 4:37 PM",
-    "image": "/content/hero/2.jpeg",
-    "url": "/content/2.amp.html"
+    "image": "/hero/2.jpeg",
+    "url": "/2.amp.html"
   },
   {
     "title": "14 Top Spots for a Music-Loving Adventurer",
@@ -208,8 +208,8 @@ var docs = [
     "kicker": "From EDM to sitars",
     "author": "Russell D. Hogan",
     "date": "Sep 6, 2016 5:50 AM",
-    "image": "/content/hero/28.jpeg",
-    "url": "/content/28.amp.html"
+    "image": "/hero/28.jpeg",
+    "url": "/28.amp.html"
   },
   {
     "title": "8 Top Spots to Experience America's Heartland",
@@ -217,8 +217,8 @@ var docs = [
     "kicker": "Sooie!",
     "author": "Russell D. Hogan",
     "date": "Sep 4, 2016 5:45 PM",
-    "image": "/content/hero/22.jpeg",
-    "url": "/content/22.amp.html"
+    "image": "/hero/22.jpeg",
+    "url": "/22.amp.html"
   },
   {
     "title": "San Francisco in 48 Hours",
@@ -226,8 +226,8 @@ var docs = [
     "kicker": "The City By the Bay",
     "author": "Joan P. Cypert",
     "date": "Sep 4, 2016 11:41 AM",
-    "image": "/content/hero/9.jpeg",
-    "url": "/content/9.amp.html"
+    "image": "/hero/9.jpeg",
+    "url": "/9.amp.html"
   },
   {
     "title": "11 Top Spots for Woodsy Splendor",
@@ -235,8 +235,8 @@ var docs = [
     "kicker": "Pitch your tent",
     "author": "Russell D. Hogan",
     "date": "Sep 3, 2016 1:16 PM",
-    "image": "/content/hero/27.jpeg",
-    "url": "/content/27.amp.html"
+    "image": "/hero/27.jpeg",
+    "url": "/27.amp.html"
   },
   {
     "title": "New York City in 48 Hours",
@@ -244,8 +244,8 @@ var docs = [
     "kicker": "The Big Apple",
     "author": "Joan P. Cypert",
     "date": "Sep 2, 2016 3:51 PM",
-    "image": "/content/hero/11.jpeg",
-    "url": "/content/11.amp.html"
+    "image": "/hero/11.jpeg",
+    "url": "/11.amp.html"
   },
   {
     "title": "Seattle in 48 Hours",
@@ -253,8 +253,8 @@ var docs = [
     "kicker": "The Emerald City",
     "author": "Todd M. Smallwood",
     "date": "Aug 29, 2016 1:46 PM",
-    "image": "/content/hero/5.jpeg",
-    "url": "/content/5.amp.html"
+    "image": "/hero/5.jpeg",
+    "url": "/5.amp.html"
   },
   {
     "title": "23 Top Spots to Just Relax",
@@ -262,8 +262,8 @@ var docs = [
     "kicker": "Ahhhhhh...",
     "author": "Demetria T. Edwards",
     "date": "Aug 28, 2016 2:18 PM",
-    "image": "/content/hero/23.jpeg",
-    "url": "/content/23.amp.html"
+    "image": "/hero/23.jpeg",
+    "url": "/23.amp.html"
   },
   {
     "title": "15 Top Spots for Underwater Adventuring",
@@ -271,8 +271,8 @@ var docs = [
     "kicker": "Grab your snorkel",
     "author": "Demetria T. Edwards",
     "date": "Aug 28, 2016 12:18 PM",
-    "image": "/content/hero/26.jpeg",
-    "url": "/content/26.amp.html"
+    "image": "/hero/26.jpeg",
+    "url": "/26.amp.html"
   },
   {
     "title": "Bucket List: Yosemite",
@@ -280,8 +280,8 @@ var docs = [
     "kicker": "From Mariposa Grove to Glacier Point, beautiful waterfalls and rock formations await you",
     "author": "Carol R. Wright",
     "date": "Aug 28, 2016 11:12 AM",
-    "image": "/content/hero/13.jpeg",
-    "url": "/content/13.amp.html"
+    "image": "/hero/13.jpeg",
+    "url": "/13.amp.html"
   },
   {
     "title": "Bucket List: Switzerland",
@@ -289,8 +289,8 @@ var docs = [
     "kicker": "From gorgeous lakes to the beautiful Alps",
     "author": "Nolan C. Sundquist",
     "date": "Aug 26, 2016 4:10 PM",
-    "image": "/content/hero/18.jpeg",
-    "url": "/content/18.amp.html"
+    "image": "/hero/18.jpeg",
+    "url": "/18.amp.html"
   },
   {
     "title": "Kuala Lumpur in 48 Hours",
@@ -298,8 +298,8 @@ var docs = [
     "kicker": "The Garden City of Lights",
     "author": "Todd M. Smallwood",
     "date": "Aug 25, 2016 4:47 PM",
-    "image": "/content/hero/10.jpeg",
-    "url": "/content/10.amp.html"
+    "image": "/hero/10.jpeg",
+    "url": "/10.amp.html"
   },
   {
     "title": "12 Top Spots for Surfing",
@@ -307,8 +307,8 @@ var docs = [
     "kicker": "Hang Ten!",
     "author": "Demetria T. Edwards",
     "date": "Aug 23, 2016 3:07 PM",
-    "image": "/content/hero/25.jpeg",
-    "url": "/content/25.amp.html"
+    "image": "/hero/25.jpeg",
+    "url": "/25.amp.html"
   },
   {
     "title": "17 Top Spots for Incredible Wildlife",
@@ -316,8 +316,8 @@ var docs = [
     "kicker": "W-hoot knew?",
     "author": "Demetria T. Edwards",
     "date": "Aug 23, 2016 8:41 AM",
-    "image": "/content/hero/30.jpeg",
-    "url": "/content/30.amp.html"
+    "image": "/hero/30.jpeg",
+    "url": "/30.amp.html"
   },
   {
     "title": "Kyoto in 48 Hours",
@@ -325,8 +325,8 @@ var docs = [
     "kicker": "Japan's Former Thousand-Year Capital",
     "author": "Todd M. Smallwood",
     "date": "Aug 22, 2016 11:26 PM",
-    "image": "/content/hero/8.jpeg",
-    "url": "/content/8.amp.html"
+    "image": "/hero/8.jpeg",
+    "url": "/8.amp.html"
   },
   {
     "title": "11 Top Spots for Incredible Photography",
@@ -334,8 +334,8 @@ var docs = [
     "kicker": "Say cheese!",
     "author": "Russell D. Hogan",
     "date": "Aug 21, 2016 10:57 AM",
-    "image": "/content/hero/24.jpeg",
-    "url": "/content/24.amp.html"
+    "image": "/hero/24.jpeg",
+    "url": "/24.amp.html"
   }
 ];
 
