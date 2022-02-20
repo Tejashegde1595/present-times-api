@@ -3,12 +3,25 @@ var axios = require('axios');
 var cors = require('cors')
 const app = express();
 const port = 8080;
+const fetch = require('node-fetch');
 const API_KEY="08e3fdb043fc41f8b43e35ccf3d18b8f";
 const category = `&category=`;
 const country = `country=`;
 const baseUrl='https://newsapi.org/v2/top-headlines?';
 var path = require('path');
+var firebase = require('firebase');
+const http = require('https');
 app.use(cors());
+var firebaseConfig = {
+  apiKey: "AIzaSyC4mWu5tfRBYbRvY9BLd9Hgit2VBPUgqCs",
+  authDomain: "news-delivery-service-dffe0.firebaseapp.com",
+  projectId: "news-delivery-service-dffe0",
+  storageBucket: "news-delivery-service-dffe0.appspot.com",
+  messagingSenderId: "573315736596",
+  appId: "1:573315736596:web:8c89fc9461108587317301",
+  measurementId: "G-2F2B8PZ3K3",
+}
+firebase.initializeApp(firebaseConfig);
 
 app.get('/news', (req, res) => {
   const countryCode = req.query.country;
@@ -60,6 +73,33 @@ res.sendFile(fileName, options, function (err) {
       console.log('Sent:', fileName);
   }
 });
+});
+
+app.get('/alexa/:uuid',function(req,res){
+    let database = firebase.database();
+    let genre=req.query.genre;
+    var user= database.ref('users').child("55b64c84-4a4a-a64e-502b-329ffee50bc9");
+    user.once('value',function(snap){
+      let token = JSON.parse(JSON.stringify(snap.val())).token;
+      console.log(token);
+      let body={
+        "notification": {
+            "title": "Call from Alexa to Show "+genre,
+            "body": "",
+            "click_action": "https://present-times-nrt6yozbm-tejashegde1595.vercel.app/"+genre,
+            "icon": ""
+        },
+        "to":token
+        };
+      fetch('https://fcm.googleapis.com/fcm/send', {
+          method: 'POST',
+          body: JSON.stringify(body),
+          headers: { 'Content-Type': 'application/json', "Authorization":"key=AAAAhXxH5BQ:APA91bEwPfRLx900wRAJBG7Yj5PwZALIx7G--lGv_oZnF6Plj8aSmzCZiPCO5m3Xy7bG_9t1WmTl1AygPVuNDpkCbIu-9uBnoKkZbaSBxFFstrIoDgX_UYKdZO6VNPjQUD1Csh6npWUb" }
+      }).then(result => {
+        console.log(result);
+        res.send(result);
+    })
+  })
 });
 
 
