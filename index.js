@@ -10,7 +10,6 @@ const country = `country=`;
 const baseUrl='https://newsapi.org/v2/top-headlines?';
 var path = require('path');
 var firebase = require('firebase');
-const http = require('https');
 app.use(cors());
 var firebaseConfig = {
   apiKey: "AIzaSyC4mWu5tfRBYbRvY9BLd9Hgit2VBPUgqCs",
