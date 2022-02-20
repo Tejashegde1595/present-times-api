@@ -3,7 +3,7 @@ var axios = require('axios');
 var cors = require('cors')
 const app = express();
 const port = 8080;
-const fetch = require('node-fetch');
+const fetch = require('cross-fetch');
 const API_KEY="08e3fdb043fc41f8b43e35ccf3d18b8f";
 const category = `&category=`;
 const country = `country=`;
